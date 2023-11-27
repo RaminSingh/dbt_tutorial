@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    description: This is a replica of the postgress database used by our app.
+    database: RETAIL_RAW
+    schema: JAFFLE_SHOP
+    tables:
+      - name: customers
+        description: One record per customer
+      - name: orders
+        description: One record per Order. Includes cancelled and deleted orders.
