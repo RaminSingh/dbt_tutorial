@@ -3,16 +3,32 @@ version: 2
 models:
   - name: customers
     description: One record per customer.
+    config:
+      materialized: table
+      contract:
+        enforced: true
     columns:
       - name: customer_id
+        data_type: int
         description: > 
           unique id for each customer. 
           The id is imported from source data system.
         tests:
           - unique
           - not_null
+      - name: first_name
+        data_type: string
+      - name: last_name
+        data_type: string
+      - name: most_recent_order_date
+        data_type: date
+      
       - name: first_order_date
+        data_type: date
         description: NULL when a customer has not yet placed an order.
+      - name: number_of_orders
+        data_type: int
+        description: No. of orders for a customer
 
   - name: stg_customers
     description: This model cleans up customer data
@@ -39,4 +55,10 @@ models:
               to: ref('stg_customers')
               field: customer_id
           
-          
+  - name: stg_payment
+    description: This model cleans up payment data
+    columns:
+      - name: amount
+        tests:
+          - pay_amount
+          - pay_amount_zero
