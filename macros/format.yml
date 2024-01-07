@@ -1,0 +1,8 @@
+version: 2
+
+macros:
+  - name: format_amount
+    arguments:
+      - name: col_name
+        type: column name or expression
+        description: "The name of a column, or an expression - anything that can be selected as a column"
