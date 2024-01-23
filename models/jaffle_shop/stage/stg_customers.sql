@@ -1,10 +1,6 @@
-{{
-    config (
-        materialized='table'
-    )
-}}
+
 SELECT 
-        id as customer_id,
+        customer_id,
         first_name,
         last_name,
         current_timestamp as record_timestamp
