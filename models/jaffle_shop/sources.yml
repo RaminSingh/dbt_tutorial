@@ -11,5 +11,5 @@ sources:
       - name: orders
         description: One record per Order. Includes cancelled and deleted orders.
       
-      - name: payment
+      - name: payments
         description: Payment record per Order.
